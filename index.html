@@ -24,8 +24,20 @@
 
     main{
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      flex-direction: row;
     }
+
+    @media screen and (max-width : 800px) {
+       
+      main{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+          }
+    }
+
     .lables-sliders{ 
       order: 3;
       padding-right:2em ;
