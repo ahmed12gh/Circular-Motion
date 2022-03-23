@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>p5.js example</title>
+  <title>Circular Motion</title>
   <style>
     body {
       padding: 0;
@@ -15,17 +15,60 @@
       padding: 0;
       margin: auto;
       display: block;
-      width: 800px;
     }
+
+    p{
+      display: block;
+      width: 20em;
+    } 
+
+    main{
+      display: flex;
+      justify-content: center;
+    }
+    .lables-sliders{ 
+      order: 3;
+      padding-right:2em ;
+      padding-left:1em ;
+    }
+    
   </style>
+   <link rel="stylesheet" href="style.css">
   <script src="p5/p5.js"></script>
   <!-- <script src="../addons/p5.sound.js"></script> -->
-  <script src="sketch.js"></script>
 </head>
 
 <body>
   <main>
+    <div>
+    <h2>Uniform Circular Motion</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et laborum ipsa veniam rem perspiciatis quo quia delectus aut iste sequi? Repellendus quos accusamus fuga architecto distinctio ad tempora tenetur unde.</p>
+    <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0cbfc5eb01f84d10e572ac6a345e687858078db4" style="width: 20em;height: 5em;" alt="{\displaystyle a_{\mathrm {c} }={\frac {v^{2}}{r}}}">
+    <h2>Non-Uniform Circular Motion</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et laborum ipsa veniam rem perspiciatis quo quia delectus aut iste sequi? Repellendus quos accusamus fuga architecto distinctio ad tempora tenetur unde.</p>
+    </div>
+    
+    <div class="lables-sliders" style="order:3">
+    <label for="">Radius:</label>
+    <input type="range" min="1" max="250" value="150"  class="slider" id="R-slider">
+    <br>
+    <label for="">angluar velocity:</label>
+    <input type="range" min="2" max="8" value="5"  class="slider" id="vel-slider">
+    <br>
+    <br>
+    <input type="checkbox" id="irregular">
+    <label for="irregular">tangential acceleration</label>
+    <br>
+    <label for="">a<sub>T</sub> : </label>
+    <input type="range" min="0" max="8" value="1"  class="slider" id="at-slider">
+    </div>
+
+    <script src="sketch.js"></script>
   </main>
 </body>
+
+<footer style="display: block;text-align: center; margin-top: 3em;">
+  made for al khadra highschool  - صنع لثانوية متميزينن الخضراء
+</footer>
 
 </html>
