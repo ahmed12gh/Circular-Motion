@@ -19,7 +19,7 @@
 
     p{
       display: block;
-      width: 20em;
+      width: 25em;
     } 
 
     main{
@@ -27,8 +27,31 @@
       justify-content: space-between;
       flex-direction: row;
     }
+    
+    .lables-sliders{ 
+      order: 3;
+      font-size: large;
 
-    @media screen and (max-width : 800px) {
+      padding-right:2em ;
+      padding-left:1em ;
+    }
+
+    label { 
+      width: 1em;
+    }
+
+    .slider { 
+      width: 14em;
+      min-width: 12em;
+      max-width: 18em;
+      top: 1em;
+    }
+
+    ::-webkit-slider-thumb , ::-moz-range-thumb { 
+        size: 2em;
+    }
+
+    @media screen and (max-width : 1000px) {
        
       main{
             display: flex;
@@ -36,13 +59,13 @@
             justify-content: space-around;
             flex-direction: column;
           }
+
+      .lables-sliders{ 
+            order: 3;
+            padding: 1em;
+          }
     }
 
-    .lables-sliders{ 
-      order: 3;
-      padding-right:2em ;
-      padding-left:1em ;
-    }
     
   </style>
    <link rel="stylesheet" href="style.css">
@@ -53,25 +76,34 @@
 <body>
   <main>
     <div>
-    <h2>Uniform Circular Motion</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et laborum ipsa veniam rem perspiciatis quo quia delectus aut iste sequi? Repellendus quos accusamus fuga architecto distinctio ad tempora tenetur unde.</p>
-    <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0cbfc5eb01f84d10e572ac6a345e687858078db4" style="width: 20em;height: 5em;" alt="{\displaystyle a_{\mathrm {c} }={\frac {v^{2}}{r}}}">
-    <h2>Non-Uniform Circular Motion</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et laborum ipsa veniam rem perspiciatis quo quia delectus aut iste sequi? Repellendus quos accusamus fuga architecto distinctio ad tempora tenetur unde.</p>
+
+    <h2>Circular Motion</h2>
+    <p>circular motion is a movement of an object along circular path </p>
+    <h3>Uniform Circular Motion</h3>
+    <p>uniform circular motion describes the motion of a body in a circular path at constant speed. 
+       its velocity is not constant because it's direction of travel is always in change. cause of the presence 
+        centripetal acceleration is of constant magnitude and directed at all times towards the axis of rotation equle to the following :
+        </p>
+    <img src="imgs/ac(uniform).png" alt="" style="width: 13em; height: 5em;">    
+    <h3>Non-Uniform Circular Motion</h3>
+    <p>In non-uniform circular motion an object is moving in a circular path with a varying speed.
+      because of the presence of tangential acceleration in addition to normal(centripetal) acceleration. Its magnitude and angle equal to the following: </p>
+      <img src="imgs/non-uniform acc mag.png" alt="" style="width: 13em; height: 5em;" >
+      <img src="imgs/theta.png" alt="" style="width: 13em; height: 5em;">
     </div>
     
     <div class="lables-sliders" style="order:3">
-    <label for="">Radius:</label>
+    <label for="R-slider">Radius:</label><br>
     <input type="range" min="1" max="250" value="150"  class="slider" id="R-slider">
     <br>
-    <label for="">angluar velocity:</label>
+    <label for="vel-slider">angluar velocity:</label><br>
     <input type="range" min="2" max="8" value="5"  class="slider" id="vel-slider">
     <br>
     <br>
     <input type="checkbox" id="irregular">
     <label for="irregular">tangential acceleration</label>
     <br>
-    <label for="">a<sub>T</sub> : </label>
+    <label for=at-slider""><strong> a<sub>T</sub> </strong> : </label>
     <input type="range" min="0" max="8" value="1"  class="slider" id="at-slider">
     </div>
 
@@ -80,7 +112,7 @@
 </body>
 
 <footer style="display: block;text-align: center; margin-top: 3em;">
-  made for al khadra highschool  - صنع لثانوية متميزينن الخضراء
+  made for al-khadraa Distinct highschool - صنع لثانوية متميزين الخضراء
 </footer>
 
 </html>

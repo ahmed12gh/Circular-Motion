@@ -73,7 +73,7 @@ class car {
   edge(){ 
     if(dist(this.loc.x , this.loc.y , 0 ,0 ) > safe_r){
       var desired  = p5.Vector.sub(createVector(0,0) , this.loc)
-      desired.normalize().mult(0.1)
+      desired.normalize().mult(0.2)
       this.acc.add(desired)
     }
   }
