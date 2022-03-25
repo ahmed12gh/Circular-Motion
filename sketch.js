@@ -21,7 +21,6 @@ class car {
 
     this.maxspeed = 4; 
     this.maxforce = 0.1; 
-    A_c = this.vel.magSq() / r
   
   }
 
@@ -31,6 +30,7 @@ class car {
       this.acc.setMag(this.vel.magSq() / r);  
     }
     else{ 
+      A_c = this.vel.magSq() / r
       let mag  = Math.sqrt(Math.pow(A_c , 2)  + Math.pow(A_t,2))  ;
       let theta = Math.atan2(A_c , A_t)
       
@@ -57,7 +57,7 @@ class car {
    
     strokeWeight(2)
     stroke(140,30,10,160) 
-    line(0,0,this.acc.x * 300 , this.acc.y * 300);
+    line(0,0,this.acc.x * 200 , this.acc.y * 200);
     stroke(10,30,160,160) 
     line(0,0,this.vel.x * 30 , this.vel.y * 30);
     
@@ -120,11 +120,14 @@ function draw() {
   
 }
 
+
+
 Rslider.onchange = ()=>{
-    r= int(Rslider.value);
+  let vel = int(velSlider.value); 
+  r= int(Rslider.value);
     safe_r = r + 80 
     CAR.loc = createVector(r,0);
-    CAR.vel = createVector(0,4);
+    CAR.vel = createVector(0,vel);
 }
 
 velSlider.onchange = ()=>{
@@ -137,11 +140,13 @@ velSlider.onchange = ()=>{
 
 
 At_s.onchange = ()=>{
-  A_t = float(At_s.value) /20
+  A_t = float(At_s.value) / 16
 }
 
 irr_check.onchange = ()=>{
+  let vel = int(velSlider.value); 
+
   irregular_acc = !irregular_acc
   CAR.loc = createVector(r,0);
-  CAR.vel = createVector(0,4);
+  CAR.vel = createVector(0,vel);
 }
