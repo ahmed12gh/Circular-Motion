@@ -30,7 +30,7 @@ class car {
       this.acc.setMag(this.vel.magSq() / r);  
     }
     else{ 
-      A_c = this.vel.magSq() / r
+      A_c = this.vel.magSq() / r  
       let mag  = Math.sqrt(Math.pow(A_c , 2)  + Math.pow(A_t,2))  ;
       let theta = Math.atan2(A_c , A_t)
       
@@ -59,7 +59,7 @@ class car {
     stroke(140,30,10,160) 
     line(0,0,this.acc.x * 200 , this.acc.y * 200);
     stroke(10,30,160,160) 
-    line(0,0,this.vel.x * 30 , this.vel.y * 30);
+    line(0,0,this.vel.x * 20 , this.vel.y * 20);
     
     rotate(theta);
     fill(10,80,140,200);
@@ -82,9 +82,19 @@ class car {
 
 var CAR ;
 let n  ; 
+let last_theta = 0 ; 
+
+function reset(){
+    Rslider.value = 150 ; 
+    velSlider.value  = 5 ; 
+    irr_check.checked = false ; 
+    At_s.value = 1 ;
+}
+
 function setup() {
   // put setup code here
   createCanvas(600,600);
+  reset()
   r= int(r);
   n = 0
   A_t = float(At_s.value) / 20
@@ -110,13 +120,22 @@ function draw() {
     point(x,y );
   }
 
-
   CAR.update();
 
   strokeWeight(1)
   stroke(125);
   line(0,0,CAR.loc.x , CAR.loc.y)
   CAR.draw();
+
+  fill(125)
+
+  textSize(14)
+  angleMode(DEGREES);
+  text("θ = "+ Math.ceil( CAR.vel.heading() ) ,0,14  )
+  text("ω = "+ Math.ceil((CAR.vel.heading() - last_theta ) * 100) /10  , 0 ,   14*3  )
+  text("α = "+ Math.ceil(CAR.acc.mag() * 100 )/100 , 0 ,14*2 )
+  last_theta = CAR.vel.heading()
+  angleMode(RADIANS);
   
 }
 
@@ -132,8 +151,7 @@ Rslider.onchange = ()=>{
 
 velSlider.onchange = ()=>{
   let vel = int(velSlider.value); 
-  CAR.loc = createVector(r,0);
-  CAR.vel = createVector(0,vel);
+  CAR.vel.setMag(vel);
   CAR.maxspeed = vel ;
 }
 
